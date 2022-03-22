@@ -8,7 +8,7 @@ const Cards = () => {
 
 
     const imgGif = async() =>{
-        const url= 'https://api.giphy.com/v1/gifs/search?q=pokemon&limit=10&api_key=c1hzNCgUGkGTufyb610lLgBXr0Aik8Cs'
+        const url= 'https://api.giphy.com/v1/gifs/search?q=pokemon&limit=50&api_key=c1hzNCgUGkGTufyb610lLgBXr0Aik8Cs'
         const resp = await fetch(url);
         const {data}= await resp.json();
         console.log(data);

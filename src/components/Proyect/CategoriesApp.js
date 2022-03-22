@@ -4,7 +4,7 @@ import CategoriesList from './CategoriesList';
 
 const CategoriesApp = () => {
 
-    const[categories, setCategories]= useState(['Funny', 'Horror', 'Heroes','Suspense']);
+    const[categories, setCategories]= useState(['Funny']);
 
 
     const handleAdd=()=>{
