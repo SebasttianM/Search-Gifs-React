@@ -2,13 +2,20 @@
 import React, { useEffect, useState } from 'react'
 
 
-const Cards = () => {
+const Cards = ({category}) => {
     const[images, setImages]= useState([]);
 
+    useEffect(() => {
+
+        imgGif(category).then(
+            imgData=> setImages(imgData)
+        )
+
+    }, [category])
 
 
-    const imgGif = async() =>{
-        const url= 'https://api.giphy.com/v1/gifs/search?q=pokemon&limit=50&api_key=c1hzNCgUGkGTufyb610lLgBXr0Aik8Cs'
+    const imgGif = async(category) =>{
+        const url= `https://api.giphy.com/v1/gifs/search?q=${encodeURI(category)}&limit=50&api_key=c1hzNCgUGkGTufyb610lLgBXr0Aik8Cs`
         const resp = await fetch(url);
         const {data}= await resp.json();
         console.log(data);
@@ -17,29 +24,25 @@ const Cards = () => {
             return{
                 id:img.id,
                 title:img.title,
-                image:img.images.original.url
+                image:img.images?.original.url
             }
         })
         return imgData
     }
 
-    useEffect(() => {
 
-        imgGif().then(
-            imgData=> setImages(imgData)
-        )
+    imgGif();
 
-    }, [])
-
-    console.log(images);
+   
   return (
     <div>
         <ol>
             {
                 images.map(img=>(
                     <li key={img.id}>
-                        <h3>{img.title}</h3>
-                        <img src={img.image} alt="" />                    </li>
+                        <h7>{img.title}</h7>
+                        <img src={img.image} alt="imagen" />                    
+                    </li>
                 ))
             }
         </ol>

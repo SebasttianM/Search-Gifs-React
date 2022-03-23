@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Button } from 'react-bootstrap';
+import CategoriesAdd from './CategoriesAdd';
 import CategoriesList from './CategoriesList';
 
 const CategoriesApp = () => {
@@ -20,17 +21,13 @@ const CategoriesApp = () => {
     }
   return (
     <div>
-    <h1>Components with Hooks</h1>
+    <h3>Here you'll find any kind of gif, Go ahead</h3>
     <ol>
-        {
-            // categories.map((cate, index)=>(
 
-            //     <li key={index}>
-            //         {cate}
-            //     </li>
-            // ))
+            <CategoriesAdd setCategories={setCategories}/>
+
             <CategoriesList category={categories}/>
-        }
+        
     </ol>
     <Button variant='warning' onClick={handleAdd}>Add</Button>
     </div>

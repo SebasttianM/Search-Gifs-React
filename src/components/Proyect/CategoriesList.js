@@ -8,7 +8,7 @@ const CategoriesList = ({category}) => {
 
 
     <div>
-        <h1>Categories List</h1>
+        
         {
             category.map((cate,index) =>(
                 <Cards category={cate} key={index}/>
